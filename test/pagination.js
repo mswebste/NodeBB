@@ -44,16 +44,15 @@ describe('Pagination', () => {
         done();
     });
 
-    // additional tests for 'faulty' cases: 
+    // additional tests for 'faulty' cases:
     it('should create pagination for same start/end pages', (done) => {
         const data = pagination.create(8, 8);
-        assert.equal(data.pages.length, 8); 
-        assert.equal(data.rel.length, 1); 
+        assert.equal(data.pages.length, 8);
+        assert.equal(data.rel.length, 1);
         assert.equal(data.pageCount, 8);
-        assert.equal(data.currentPage, 8); 
-
-        assert.equal(data.first.page, 1); 
-        assert.equal(data.last.page, 8); 
+        assert.equal(data.currentPage, 8);
+        assert.equal(data.first.page, 1);
+        assert.equal(data.last.page, 8);
         assert.equal(data.prev.page, 7);
         assert.equal(data.next.page, 8);
         done();
@@ -62,11 +61,10 @@ describe('Pagination', () => {
     it('should create pagination for 0 pages', (done) => {
         const data = pagination.create(1, 0);
         assert.equal(data.pages.length, 0);
-        assert.equal(data.rel.length, 0); 
-        assert.equal(data.pageCount, 1); 
-        assert.equal(data.currentPage, 1); 
-
-        assert.equal(data.first.page, 1); 
+        assert.equal(data.rel.length, 0);
+        assert.equal(data.pageCount, 1);
+        assert.equal(data.currentPage, 1);
+        assert.equal(data.first.page, 1);
         assert.equal(data.last.page, 1);
         assert.equal(data.prev.page, 1);
         assert.equal(data.next.page, 1);
@@ -76,13 +74,13 @@ describe('Pagination', () => {
     it('should create pagination for faulty bounds', (done) => {
         const data = pagination.create(8, 4);
         assert.equal(data.pages.length, 4);
-        assert.equal(data.rel.length, 1); // was 0
+        assert.equal(data.rel.length, 1);
         assert.equal(data.pageCount, 4);
-        assert.equal(data.currentPage, 8); 
+        assert.equal(data.currentPage, 8);
         assert.equal(data.first.page, 1);
-        assert.equal(data.last.page, 4); 
+        assert.equal(data.last.page, 4);
         assert.equal(data.prev.page, 7);
         assert.equal(data.next.page, 4);
         done();
-    });    
+    });
 });
